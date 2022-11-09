@@ -39,6 +39,7 @@ Route::middleware([
     })->name('playlists');
 });
 
+
 // create playlist
 Route::middleware([
     'auth:sanctum',
