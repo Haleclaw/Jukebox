@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlaylistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,7 @@ Route::middleware([
 });
 
 
-// create playlist
+// create playlist with forum // 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -49,6 +50,16 @@ Route::middleware([
     Route::get('/createPlaylist', function () {
         return view('createPlaylist');
     })->name('createPlaylist');
+});
+
+// add playlist // link controller //
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/addPlaylist', [PlaylistController::class, 'createPlaylist'] , function () {
+    })->name('addPlaylist');
 });
 
 // music genre // 
