@@ -19,58 +19,21 @@ Route::get('/', function () {
 });
 
 // dashboard // home page //
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+    Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
 
 // playlist page //
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/playlists', function () {
-        return view('playlistPage');
-    })->name('playlists');
-});
+    Route::get('/playlists',  [PlaylistController::class, 'getPlaylists'] , function () { })->name('playlists');
+    
+// create playlist forum // 
+    Route::get('/createPlaylist', function () { return view('createPlaylist');})->name('createPlaylist');
 
-
-// create playlist with forum // 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/createPlaylist', function () {
-        return view('createPlaylist');
-    })->name('createPlaylist');
-});
+// edit playlist // forum //
+    Route::get('/editPlaylist', function () { return view('editPlaylist');})->name('editPlaylist');
 
 // add playlist // link controller //
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/addPlaylist', [PlaylistController::class, 'createPlaylist'] , function () {
-    })->name('addPlaylist');
-});
+    Route::post('/addPlaylist', [PlaylistController::class, 'createPlaylist'] , function () {})->name('addPlaylist');
 
 // music genre // 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/musicList', function () {
-        return view('musicGenrePage');
-    })->name('musicList');
-});
+    Route::get('/musicList', function () { return view('musicGenrePage');})->name('musicList');
 
 
