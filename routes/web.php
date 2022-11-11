@@ -39,6 +39,9 @@ Route::get('/', function () {
 // post edit playlist // link controller //
     Route::post('/changePlaylist/Push', [PlaylistController::class, 'changePlaylistPush'] , function () {})->name('changePlaylistPush');
 
+// delete playlist //
+    Route::get('/deletePlaylist/{id}', [PlaylistController::class, 'deletePlaylist'] , function () {})->name('deletePlaylist');
+
 // music genre // 
     Route::get('/musicList', function () { return view('musicGenrePage');})->name('musicList');
 

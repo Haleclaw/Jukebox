@@ -45,4 +45,10 @@ class PlaylistController extends Controller
 
          return redirect('/playlists');
     }
+
+    function deletePlaylist(Request $request , $id){
+        Playlist::where('id' , $id)->delete();
+
+        return redirect('/playlists');
+    }
 }
