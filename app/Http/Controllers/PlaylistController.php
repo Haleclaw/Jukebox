@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class PlaylistController extends Controller
 {
+
+    function storeId(Request $request , $id){
+        app('App\Http\Controllers\SessionController')->sessionPut('name', $id, $request);
+        return redirect('/editPlaylist');
+    }
+
     function createPlaylist(Request $request){
 
         $playlist = new Playlist;
@@ -28,5 +34,15 @@ class PlaylistController extends Controller
         $playlist = Playlist::all();
 
         return view('playlistPage')->with('playlist' , $playlist);
+    }
+
+
+    function changePlaylistPush(Request $request){
+        $name = app('App\Http\Controllers\SessionController')->sessionGetAll('name', $request);
+
+        
+         Playlist::where('id' , $name)->update(['name' => $request->name ,'description' =>  $request->description]);
+
+         return redirect('/playlists');
     }
 }

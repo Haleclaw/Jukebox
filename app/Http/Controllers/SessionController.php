@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class SessionController extends Controller
+{
+   //stores item in session
+   public function sessionPush($name, $id, $request)
+   {
+       $request->session()->push($name, $id); 
+
+       return back();
+   }
+
+   //replaces item in session
+   public function sessionPut($name, $id, $request)
+   {
+       $request->session()->put($name, $id);
+
+       return back();
+   }
+
+   //retrieves all data from a specific session
+   public function sessionGetAll($name, $request)
+   {
+       $data = $request->session()->get($name);
+
+       return $data;
+   }
+}

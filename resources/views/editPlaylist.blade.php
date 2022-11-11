@@ -7,7 +7,7 @@
 
     
       @csrf
-    <form method="POST" action="/addPlaylist" class="grid place-items-center ">
+    <form method="POST" action="/changePlaylist/Push" class="grid place-items-center">
       @csrf
         <div class="md:flex md:items-center mb-6">
           <div class="md:w-1/3">
@@ -37,5 +37,9 @@
           </div>
         </div>
       </form>
+
+      <div class="grid place-items-center font-semibold text-xl text-gray-800 leading-tight m-5">
+        <h1> Nummers: </h1>
+      </div>
 
 </x-app-layout>

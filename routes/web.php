@@ -27,11 +27,17 @@ Route::get('/', function () {
 // create playlist forum // 
     Route::get('/createPlaylist', function () { return view('createPlaylist');})->name('createPlaylist');
 
-// edit playlist // forum //
-    Route::get('/editPlaylist', function () { return view('editPlaylist');})->name('editPlaylist');
+// edit playlist forum //
+    Route::get('/editPlaylist', function () { return view('editPlaylist');})->name('editPlaylist');  
 
 // add playlist // link controller //
     Route::post('/addPlaylist', [PlaylistController::class, 'createPlaylist'] , function () {})->name('addPlaylist');
+
+// change playlist // link controller //
+    Route::get('/changePlaylist/{id}', [PlaylistController::class, 'storeId'] , function () {})->name('storeId');
+
+// post edit playlist // link controller //
+    Route::post('/changePlaylist/Push', [PlaylistController::class, 'changePlaylistPush'] , function () {})->name('changePlaylistPush');
 
 // music genre // 
     Route::get('/musicList', function () { return view('musicGenrePage');})->name('musicList');
