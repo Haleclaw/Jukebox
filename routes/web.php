@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\SongController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,9 @@ Route::get('/', function () {
     Route::get('/musicList', [GenreController::class, 'getAllGenre'] , function () {})->name('musicList');
 
 // genre song page //
-   Route::get('/genreSongList/{id}', function () {})->name('genreSongList');
+   Route::get('/genreSongList/{id}', [GenreController::class, 'getAllGenreSongs'] , function () {})->name('genreSongList');
+
+// song details page //
+    Route::get('/songDetails/{id}', [SongController::class, 'getSongDetails'] , function () {})->name('songDetails');
 
 
