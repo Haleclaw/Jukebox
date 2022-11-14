@@ -53,4 +53,11 @@ Route::get('/', function () {
 // song details page //
     Route::get('/songDetails/{id}', [SongController::class, 'getSongDetails'] , function () {})->name('songDetails');
 
+// add song to playlist forum // 
+    Route::get('/addSongToPlaylist/{id}', [SongController::class, 'addSongToPlaylistforum'] , function () {})->name('addSongToPlaylistforum');
+
+// add song to playlist // 
+    Route::post('/addSongToPlaylist/push', [SongController::class, 'addSongToPlaylist'] , function () {})->name('addSongToPlaylist');
+
+
 

@@ -14,4 +14,14 @@ class SongController extends Controller
 
         return view('songDetails')->with('song' , $song);
     }
+
+    function addSongToPlaylistforum(){
+        return view('addSongToPlaylist');
+
+
+    }
+
+    function addSongToPlaylist(Request $request){
+        dd($request);
+        }
 }
