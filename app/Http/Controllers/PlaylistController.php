@@ -51,4 +51,11 @@ class PlaylistController extends Controller
 
         return redirect('/playlists');
     }
+
+    function getAllPlaylistNames(Request $request , $id){
+        app('App\Http\Controllers\SessionController')->sessionPut('song', $id, $request);
+
+        $playlists = Playlist::all();
+        return view('addSongToPlaylist')->with('playlists' , $playlists);
+    }
 }
