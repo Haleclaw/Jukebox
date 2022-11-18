@@ -32,4 +32,20 @@ class SongController extends Controller
 
         return redirect('/playlists');
         }
+
+        function getPlaylistSongs(Request $request , $id){
+            $name = playlist::where('id' , $id)->get();
+
+            $select = Saved_Song::where('listid', $id)->get();
+
+            $song = Song::all();
+
+            return view('myplaylistSongs')->with(['name' => $name, 'select' => $select, 'song' => $song]);
+        }
+
+        function deleteSongInPlaylist(Request $request , $id){
+            Saved_Song::where('id' , $id)->delete();
+            
+            return back();
+        }
 }

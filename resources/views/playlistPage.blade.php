@@ -12,6 +12,7 @@
                 <p class='m-2'> Beschrijving: {{$data->description}} </p>
                 <x-jet-nav-link type="button" class='rounded-3xl bg-white hover:bg-white text-black font-bold py-2 px-4 m-2 rounded' href='/changePlaylist/{{$data->id}}'> edit playlist </x-jet-nav-link>
                 <x-jet-nav-link type="button" class='rounded-3xl bg-white hover:bg-white text-black font-bold py-2 px-4 m-2 rounded' href="/deletePlaylist/{{$data->id}}"> delete playlist </x-jet-nav-link>
+                <x-jet-nav-link type="button" class='rounded-3xl bg-white hover:bg-white text-black font-bold py-2 px-4 m-2 rounded' href="/myPlaylistSongs/{{$data->id}}"> songs </x-jet-nav-link>
             </div>
         @endforeach
         

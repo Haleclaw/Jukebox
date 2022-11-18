@@ -59,5 +59,13 @@ Route::get('/', function () {
 // add song to playlist // 
     Route::post('/addSongToPlaylist/push', [SongController::class, 'addSongToPlaylist'] , function () {})->name('addSongToPlaylist');
 
+// show my playlist songs // 
+    Route::get('/myPlaylistSongs/{id}', [SongController::class, 'getPlaylistSongs'] , function () {})->name('myPlaylistSongs');
+
+// delete song out of a playlist //
+    Route::get('/playlistdetails/{id}/remove', [SongController::class, 'deleteSongInPlaylist'] , function () {})->name('deleteSongInPlaylist'); 
+
+
+
 
 
