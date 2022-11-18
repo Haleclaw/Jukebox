@@ -75,6 +75,14 @@ Route::get('/', function () {
 // queue song remove from queue //
     Route::get('/queue/{id}/remove', [QueueController::class, 'deleteSong'] , function () {})->name('deleteSong');
 
+// change Queue to Playlist //
+    Route::post('/makeQueuetoPlaylist', [QueueController::class, 'changeQueueToPlaylist'] , function () {})->name('changeQueueToPlaylist');
+
+// change Queue to playlist form //
+    Route::get('/makeQueuetoPlaylistForm', function () { return view('makeQueuetoPlaylistForm');})->name('makeQueuetoPlaylistForm');
+
+    
+
 
 
 

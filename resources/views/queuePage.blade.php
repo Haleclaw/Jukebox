@@ -29,6 +29,7 @@
                     @endforeach
                     <b>Total Duration: {{$duration}} seconds</b>
                 </div>
+                <a href="/makeQueuetoPlaylistForm" style="padding: 5px; border-width: 2px; float:right;">maak van de Queue een Playlist</a>
             </div>
         </div>
     </div>
