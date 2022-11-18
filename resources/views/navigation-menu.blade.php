@@ -23,6 +23,10 @@
                     <x-jet-nav-link href="{{ route('playlists') }}" :active="request()->routeIs('playlists')">
                         {{ __('My playlists') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('queuePage') }}" :active="request()->routeIs('queuePage')">
+                        {{ __('My Queue') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

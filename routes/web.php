@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\QueueController;
 use App\Http\Controllers\SongController;
 
 /*
@@ -63,7 +64,16 @@ Route::get('/', function () {
     Route::get('/myPlaylistSongs/{id}', [SongController::class, 'getPlaylistSongs'] , function () {})->name('myPlaylistSongs');
 
 // delete song out of a playlist //
-    Route::get('/playlistdetails/{id}/remove', [SongController::class, 'deleteSongInPlaylist'] , function () {})->name('deleteSongInPlaylist'); 
+    Route::get('/playlistdetails/{id}/remove', [SongController::class, 'deleteSongInPlaylist'] , function () {})->name('deleteSongInPlaylist');
+
+// add to queue //
+    Route::get('/addToQueue/{id}', [QueueController::class, 'addToQueue'] , function () {})->name('addToQueue');
+
+// queue page //
+    Route::get('/queuePage', [QueueController::class, 'getAllSongs'] , function () { return view('queuePage');})->name('queuePage');
+
+// queue song remove from queue //
+    Route::get('/queue/{id}/remove', [QueueController::class, 'deleteSong'] , function () {})->name('deleteSong');
 
 
 

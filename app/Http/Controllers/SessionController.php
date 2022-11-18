@@ -29,4 +29,20 @@ class SessionController extends Controller
 
        return $data;
    }
+
+   //deletes specific item from session
+   public function sessionPull($name, $id, $request)
+   {
+       $request->session()->pull($name. ".". $id);
+
+       return back();
+   }
+
+   //retrieves all items from session then deletes it from session
+   public function sessionPullAll($name, $request)
+   {
+       $data = $request->session()->pull($name);
+
+       return $data;
+   }
 }
