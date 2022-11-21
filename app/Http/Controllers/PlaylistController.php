@@ -59,4 +59,10 @@ class PlaylistController extends Controller
         $playlists = Playlist::all();
         return view('addSongToPlaylist')->with('playlists' , $playlists);
     }
+
+    function getPersonalPlaylist(){
+        $playlist = Playlist::where('userid' , Auth::user()->id)->get();
+
+        return view('playlistPage')->with('playlist' , $playlist);
+    }
 }

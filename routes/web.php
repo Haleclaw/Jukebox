@@ -25,7 +25,7 @@ Route::get('/', function () {
     Route::get('/dashboard', function () { return view('dashboard');})->name('dashboard');
 
 // playlist page //
-    Route::get('/playlists',  [PlaylistController::class, 'getPlaylists'] , function () { })->name('playlists');
+    Route::get('/playlists',  [PlaylistController::class, 'getPersonalPlaylist'] , function () { })->name('playlists');
     
 // create playlist forum // 
     Route::get('/createPlaylist', function () { return view('createPlaylist');})->name('createPlaylist');
